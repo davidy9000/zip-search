@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project 1: Zip Code Search app
+
+In this project you will build a simple Zip Code search app. We will need an input field where the user can enter a zip code, like in the following image:
+
+#### [Before Search](https://github.com/CUNYTechPrep/week-03-projects/blob/master/zip-search-1.png)
+
+We will use the user input to search the ctp-zip-api. If the zip code is valid the API will respond with an object for each city. Use that response to display each city in a separate div like in the following image: 
+
+#### [After Search](https://github.com/CUNYTechPrep/week-03-projects/blob/master/zip-search-2.png)
+
+## ---------------------------------------------------------------------------------------------------
+
 ## Available Scripts
 
 In the project directory, you can run:
