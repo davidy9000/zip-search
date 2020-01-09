@@ -15,13 +15,13 @@ class LocationCard extends Component {
     render() {
         return (
             <div className = "LocationCard">
-                <div>State: {this.props.usState}</div>
-                <div>Location: {this.props.lat}, {this.props.lon}</div>
-                <div>Population (estimated): {this.props.population}</div>
-                <div>Total Wages: ${this.props.wages}</div>
+                <div>State: {this.state.usState}</div>
+                <div>Location: {this.state.lat}, {this.state.lon}</div>
+                <div>Population (estimated): {this.state.population}</div>
+                <div>Total Wages: {this.state.wages}</div>
             </div>
         )
     }
-};
+}
 
 export default LocationCard;
