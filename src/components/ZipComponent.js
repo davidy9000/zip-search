@@ -21,16 +21,16 @@ class ZipCode extends Component {
             .then((myJson) => {
                 let data = myJson;
                 console.log(data[0])
-                this.setState({population: data[0].EstimatedPopulation})
-                this.setState({usState: data[0].State})
-                this.setState({lat: data[0].Lat})
-                this.setState({lon: data[0].Lon})
-                this.setState({wages: data[0].TotalWages})
+                    this.setState({population: data[0].EstimatedPopulation})
+                    this.setState({usState: data[0].State})
+                    this.setState({lat: data[0].Lat})
+                    this.setState({lon: data[0].Lon})
+                    this.setState({wages: data[0].TotalWages})
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
-    }
+    }   
 
     render() {
         return (
