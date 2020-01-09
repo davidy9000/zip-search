@@ -8,8 +8,10 @@ class ZipCode extends Component {
             lat: props.lat,
             lon: props.lon, 
             population: props.population,
-            wages: props.wages
+            wages: props.wages,
+            apiData: []
         }
+        //this.apiData = [];
     }
 
     handleSearchClick = () => {
@@ -19,17 +21,33 @@ class ZipCode extends Component {
                 return response.json();
             })
             .then((myJson) => {
+                this.setState({apiData: myJson});/*
                 let data = myJson;
                 console.log(data[0])
-                    this.setState({population: data[0].EstimatedPopulation})
-                    this.setState({usState: data[0].State})
-                    this.setState({lat: data[0].Lat})
-                    this.setState({lon: data[0].Lon})
-                    this.setState({wages: data[0].TotalWages})
+                    this.setState({population: data[0].EstimatedPopulation,
+                        usState: data[0].State, lat: data[0].Lat, 
+                        lon: data[0].Long,wages: data[0].TotalWages});*/
             })
             .catch((error) => {
                 console.error('Error:', error);
             });
+    }
+
+    makeTable = () =>{
+        //console.log(this.state.apiData);
+        let currData = this.state.apiData;
+        let table = [];
+        let row = [];
+        for(let i = 0; i < currData.length; i++){
+            row.push(<td>
+                <div className = "LocationCard">
+                <div>State: {currData[i].State}</div>
+                <div>Location: {currData[i].Lat}, {currData[i].Long}</div>
+                </div></td>)
+        }
+        table.push(<tr>{row}</tr>);
+        return table;
+
     }   
 
     render() {
@@ -40,12 +58,9 @@ class ZipCode extends Component {
                 <input id="search-text" type="text" placeholder="Try 10016"/>
                 <button className="search-button" onClick={this.handleSearchClick}>Search</button>
             </div>
-            <div className = "LocationCard">
-                <div>State: {this.state.usState}</div>
-                <div>Location: {this.state.lat}, {this.state.lon}</div>
-                <div>Population (estimated): {this.state.population}</div>
-                <div>Total Wages: {this.state.wages}</div>
-            </div>
+            <table className="data">
+                {this.makeTable()}
+            </table>
             </div>
         )
     }

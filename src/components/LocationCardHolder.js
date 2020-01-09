@@ -32,10 +32,11 @@ class LocationCardHolder extends Component{
     }
     
     render(){
+        return(
         <div>
             this.locationArray.forEach(place => {
             })
-        </div>
+        </div>);
     }
 }
 
